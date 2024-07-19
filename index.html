@@ -1,83 +1,110 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Salary Calculator</title>
-<style>
-body {
-  font-family: Arial, sans-serif;
-}
-.container {
-  border: 1px solid #ddd;
-  padding: 20px;
-  width: 400px;
-  margin: 0 auto;
-}
-.label {
-  display: block;
-  margin-bottom: 5px;
-}
-.input {
-  width: 100%;
-  padding: 10px;
-  box-sizing: border-box;
-  border: 1px solid #ddd;
-}
-.button {
-  background-color: #4CAF50; /* Green */
-  border: none;
-  color: white;
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin-top: 10px;
-  cursor: pointer;
-}
-.output {
-  margin-top: 20px;
-  border: 1px solid #ddd;
-  padding: 10px;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salary Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            border: 1px solid #ddd;
+            padding: 20px;
+            width: 100%;
+            max-width: 500px;
+            margin: 50px auto;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+        .input {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+        .button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+        .output {
+            margin-top: 20px;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+        .output b {
+            color: #333;
+        }
+    </style>
 </head>
 <body>
-<div class="container">
-  <h1>Salary Calculator</h1>
-  <label class="label" for="name">Employee Name:</label>
-  <input type="text" class="input" id="name" placeholder="Enter your name">
-  <label class="label" for="hours">Hours Worked:</label>
-  <input type="number" class="input" id="hours" placeholder="Enter hours worked">
-  <label class="label" for="rate">Rate per Hour:</label>
-  <input type="number" class="input" id="rate" placeholder="Enter rate per hour">
-  <button onclick="calculateSalary()">Calculate Salary</button>
-  <div class="output" id="output"></div>
-</div>
-<script>
-function calculateSalary() {
-  let name = document.getElementById("name").value;
-  let hours = parseFloat(document.getElementById("hours").value);
-  let rate = parseFloat(document.getElementById("rate").value);
-  let basicPay = hours * rate;
-  let tax;
-  let netPay;
+    <div class="container">
+        <h1>Salary Calculator</h1>
+        <label class="label" for="name">Employee Name:</label>
+        <input type="text" class="input" id="name" placeholder="Enter your name">
+        <label class="label" for="hours">Hours Worked:</label>
+        <input type="number" class="input" id="hours" placeholder="Enter hours worked">
+        <label class="label" for="rate">Rate per Hour:</label>
+        <input type="number" class="input" id="rate" placeholder="Enter rate per hour">
+        <button class="button" onclick="calculateSalary()">Calculate Salary</button>
+        <div class="output" id="output"></div>
+    </div>
 
-  if (basicPay > 50000) {
-    tax = basicPay * 0.2;
-  } else if (basicPay > 20000) {
-    tax = basicPay * 0.1;
-  } else {
-    tax = 0;
-  }
+    <script>
+        function calculateSalary() {
+            let name = document.getElementById("name").value;
+            let hours = parseFloat(document.getElementById("hours").value);
+            let rate = parseFloat(document.getElementById("rate").value);
+            let basicPay = hours * rate;
+            let tax;
+            let netPay;
 
-  netPay = basicPay - tax;
+            if (basicPay > 50000) {
+                tax = basicPay * 0.2;
+            } else if (basicPay > 20000) {
+                tax = basicPay * 0.1;
+            } else {
+                tax = 0;
+            }
 
-  let output = "Employee Name: " + name + "<br>";
-  output += "Basic Pay: ksh; " + basicPay.toFixed(2) + "<br>";
-  output += "Tax: ksh; " + tax.toFixed(2) + "<br>";
-  output += "Net Pay: ksh; " + netPay.toFixed(2);
-  document.getElementById("output").innerHTML = output;
-}
-</script>
+            netPay = basicPay - tax;
+
+            let output = "<b>Employee Name:</b> " + name + "<br>";
+            output += "<b>Basic Pay:</b> Ksh " + basicPay.toFixed(2) + "<br>";
+            output += "<b>Tax:</b> Ksh " + tax.toFixed(2) + "<br>";
+            output += "<b>Net Pay:</b> Ksh " + netPay.toFixed(2);
+            document.getElementById("output").innerHTML = output;
+        }
+    </script>
 </body>
 </html>
