@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Salary Calculator</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+}
+.container {
+  border: 1px solid #ddd;
+  padding: 20px;
+  width: 400px;
+  margin: 0 auto;
+}
+.label {
+  display: block;
+  margin-bottom: 5px;
+}
+.input {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+}
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+.output {
+  margin-top: 20px;
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Salary Calculator</h1>
+  <label class="label" for="name">Employee Name:</label>
+  <input type="text" class="input" id="name" placeholder="Enter your name">
+  <label class="label" for="hours">Hours Worked:</label>
+  <input type="number" class="input" id="hours" placeholder="Enter hours worked">
+  <label class="label" for="rate">Rate per Hour:</label>
+  <input type="number" class="input" id="rate" placeholder="Enter rate per hour">
+  <button onclick="calculateSalary()">Calculate Salary</button>
+  <div class="output" id="output"></div>
+</div>
+<script>
+function calculateSalary() {
+  let name = document.getElementById("name").value;
+  let hours = parseFloat(document.getElementById("hours").value);
+  let rate = parseFloat(document.getElementById("rate").value);
+  let basicPay = hours * rate;
+  let tax;
+  let netPay;
+
+  if (basicPay > 50000) {
+    tax = basicPay * 0.2;
+  } else if (basicPay > 20000) {
+    tax = basicPay * 0.1;
+  } else {
+    tax = 0;
+  }
+
+  netPay = basicPay - tax;
+
+  let output = "Employee Name: " + name + "<br>";
+  output += "Basic Pay: ksh; " + basicPay.toFixed(2) + "<br>";
+  output += "Tax: ksh; " + tax.toFixed(2) + "<br>";
+  output += "Net Pay: ksh; " + netPay.toFixed(2);
+  document.getElementById("output").innerHTML = output;
+}
+</script>
+</body>
+</html>
