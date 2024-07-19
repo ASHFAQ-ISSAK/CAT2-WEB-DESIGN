@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .content-wrapper {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    p { /* Styles for all paragraphs */
+      margin-bottom: 15px;
+      line-height: 1.5; /* Adjust line spacing for better readability */
+    }
+
+    .course-list { /* Styles for course list (unordered list) */
+      list-style: none; /* Remove default bullet points */
+      padding: 0; /* Remove default padding */
+      margin: 0; /* Remove default margin */
+    }
+
+    .course-list li { /* Styles for individual course list items */
+      margin-bottom: 5px;
+      padding-left: 15px; /* Add left padding to create space for an icon (optional) */
+      position: relative; /* Allows positioning of an icon (optional) */
+    }
+
+    .course-list li:before { /* Optional: Add an icon before each course item */
+      content: "\f0da"; /* Font Awesome icon code for checkmark (replace with your desired icon) */
+      font-family: FontAwesome; /* Replace with your chosen icon font library */
+      position: absolute;
+      left: 0;
+      top: 5px;
+      color: #ccc;
+    }
+
+    .course-details { /* Styles for course details (ordered list) */
+      margin-bottom: 20px;
+      padding-left: 20px; /* Add left padding for indentation */
+    }
+
+    .course-details li {
+      line-height: 1.2; /* Adjust line spacing for a tighter list */
+    }
+
+    .container {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 5px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      width: 400px;
+      margin: 0 auto; /* Center the form container */
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #4CAF50; /* Green */
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <p>List of available courses</p>
+  <ul>
+    <li>Data structures and algorithm</li>
+    <li>Web Technology</li>
+    <li>Apptitude & logical reasoning</li>
+    <li>Programming languages</li>
+  </ul>
+
+  <p>Data structures and algorithm</p>
+  <ol>
+    <li>Array</li>
+    <li>Linked list</li>
+    <li>Stacks</li>
+    <li>Queues</li>
+    <li>Trees</li>
+    <li>Graphs</li>
+  </ol>
+
+  <div class="container">
+    <h1>Sign Up</h1>
+    <form action="#">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email ID</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Set Password</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+      </div>
+      <button type="submit">REGISTER</button>
+    </form>
+  </div>
+</body>
+</html>
